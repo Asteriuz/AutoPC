@@ -1,0 +1,37 @@
+import os
+import pkg_resources
+
+def calc_container(path):
+    total_size = 0
+    for dirpath, dirnames, filenames in os.walk(path):
+        for f in filenames:
+            fp = os.path.join(dirpath, f)
+            total_size += os.path.getsize(fp)
+    return total_size
+
+
+
+dists = [d for d in pkg_resources.working_set]
+
+total = 0
+packages = {}
+for dist in dists:
+    try:
+        path = os.path.join(dist.location, dist.project_name)
+        size = calc_container(path)
+        if size/1000 > 1.0:
+            packages[str(dist)] = round(size/1000000, 2)
+            # print (f"{dist}: {round(size/1000000, 2)} MB")
+            # total += round(size/1000000, 2)
+    except OSError:
+        '{} no longer exists'.format(dist.project_name)
+
+sortsize_pack = dict(sorted(packages.items(), key=lambda item: item[1], reverse=False))
+sortname_pack = dict(sorted(packages.items(), key=lambda item: item[0], reverse=False))
+for name, size in sortsize_pack.items():
+    print(f"{name}: {size} MB")
+    print("-"*40)
+
+total = sum(packages.values())
+print(f"TOTAL: {round(total, 2)} MB")
+print()
