@@ -1,5 +1,5 @@
 ﻿; #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
-; SetWorkingDir("C:\Users\augus\Utilities\Scripts\PCAutomatizerAHK-main")
+; SetWorkingDir("C:\Users\augus\Utils\AutoPC")
 
 #Requires AutoHotkey v2.0-a
 SetNumlockState("AlwaysOff")
@@ -13,14 +13,12 @@ global inputChange := false
 global portraitWallpaper := "C:\Program Files (x86)\Steam\steamapps\workshop\content\431960\2831647940\scene.pkg"
 global landscapeWallpaper := "C:\Program Files (x86)\Steam\steamapps\workshop\content\431960\2901461876\scene.pkg"
 
-
 #Include %A_ScriptDir%\lib\menu\menu_sound.ahk
 #Include %A_ScriptDir%\lib\menu\menu_monitors.ahk
 #Include %A_ScriptDir%\lib\menu\menu_adobe.ahk
 #Include %A_ScriptDir%\lib\menu\menu_v2new.ahk
 #Include %A_ScriptDir%\lib\menu\menu_explorer.ahk
 #Include %A_ScriptDir%\lib\explorerTabFunc.ahk
-
 
 GetActiveExplorerTab(hwnd := WinExist("A")) {
     activeTab := 0
@@ -43,38 +41,11 @@ GetActiveExplorerTab(hwnd := WinExist("A")) {
             default: ;case "HTMLDocument":
                 return w.LocationURL
         }
-    } }
-
+    }
+}
 
 ::]help:: {
     MsgBox("# - Win`n! - Alt`n^ - Ctrl`n+ - Shift")
-}
-
-#t:: {
-    ControlClick("Chrome_RenderWidgetHostHWND1", "ahk_exe chrome.exe")
-}
-
-
-rainha := 0
-#;:: {
-    global rainha
-    if (ProcessExist(rainha)) {
-        run("cmd.exe /c taskkill /pid " . rainha, , "hide")
-        MsgBox("Rainha dormindo")
-    }
-    Else {
-        run("cmd.exe /c cd C:\Users\augus\Code\Projetos\Rainha\palacio\Scripts & activate & cd C:\Users\augus\Code\Projetos\Rainha & python rainha.py", , "hide", &rainha)
-    }
-}
-#!;:: {
-    global rainha
-    if (ProcessExist(rainha)) {
-        run("cmd.exe /c taskkill /pid " . rainha, , "hide")
-        MsgBox("Rainha dormindo")
-    }
-    Else {
-        run("cmd.exe /c cd C:\Users\augus\Code\Projetos\Rainha\palacio\Scripts & activate & cd C:\Users\augus\Code\Projetos\Rainha & python rainha.py", , , &rainha)
-    }
 }
 
 ChangeScreenOrientation(Orientation := "Landscape") {
@@ -120,35 +91,45 @@ Landscape:
 
 ^!Up:: {
     ; using var portraitWallpaper
-    Run('"C:\Program Files (x86)\Steam\steamapps\common\wallpaper_engine\wallpaper64.exe" -control openWallpaper -file "' . landscapeWallpaper . '"')
+    Run(
+        '"C:\Program Files (x86)\Steam\steamapps\common\wallpaper_engine\wallpaper64.exe" -control openWallpaper -file "' .
+        landscapeWallpaper . '"')
     ChangeScreenOrientation("Landscape")
 }
 
 ^!Down:: {
-    Run('"C:\Program Files (x86)\Steam\steamapps\common\wallpaper_engine\wallpaper64.exe" -control openWallpaper -file "' . landscapeWallpaper . '"')
+    Run(
+        '"C:\Program Files (x86)\Steam\steamapps\common\wallpaper_engine\wallpaper64.exe" -control openWallpaper -file "' .
+        landscapeWallpaper . '"')
     ChangeScreenOrientation("Landscape (flipped)")
 }
 
 ^!Left:: {
-    Run('"C:\Program Files (x86)\Steam\steamapps\common\wallpaper_engine\wallpaper64.exe" -control openWallpaper -file "' . portraitWallpaper . '"')
+    Run(
+        '"C:\Program Files (x86)\Steam\steamapps\common\wallpaper_engine\wallpaper64.exe" -control openWallpaper -file "' .
+        portraitWallpaper . '"')
     ChangeScreenOrientation("Portrait (flipped)")
 }
 
 ^!Right:: {
-    Run('"C:\Program Files (x86)\Steam\steamapps\common\wallpaper_engine\wallpaper64.exe" -control openWallpaper -file "' . portraitWallpaper . '"')
+    Run(
+        '"C:\Program Files (x86)\Steam\steamapps\common\wallpaper_engine\wallpaper64.exe" -control openWallpaper -file "' .
+        portraitWallpaper . '"')
     ChangeScreenOrientation("Portrait")
 }
 
 #e:: {
     ExplorerNewTab("C:\Users\augus")
+    KeyWait("e")
 }
 
 #d:: {
-    ; Run("C:\Users\augus\Downloads")
     ExplorerNewTab("C:\Users\augus\Downloads")
+    KeyWait("d")
 }
 
-#HotIf ((WinActive("ahk_exe Code.exe") or WinActive("ahk_exe Notepad.exe") or WinActive("ahk_exe Notepad++.exe")) and InStr(WinGetTitle("A"), "scriptv2.ahk"))
+#HotIf ((WinActive("ahk_exe Code.exe") or WinActive("ahk_exe Notepad.exe") or WinActive("ahk_exe Notepad++.exe")) and
+InStr(WinGetTitle("A"), "scriptv2.ahk"))
 ^s:: {
     Reload
     Send("^s")
@@ -160,7 +141,6 @@ Landscape:
     Reload
 }
 
-
 #l:: {
     run("cmd.exe /c python " . A_ScriptDir . "\lib\night-light.py", , "hide")
 }
@@ -169,15 +149,12 @@ Landscape:
     ExplorerNewTab("shell:RecycleBinFolder")
 }
 
-
 #^w::
 {
-    if WinActive("ahk_exe ui32.exe")
-    {
+    if WinActive("ahk_exe ui32.exe") {
         WinMinimize(" ahk_exe ui32.exe")
     }
-    else if WinExist("ahk_exe ui32.exe")
-    {
+    else if WinExist("ahk_exe ui32.exe") {
         WinActivate(" ahk_exe ui32.exe")
     }
     else
@@ -185,10 +162,9 @@ Landscape:
     KeyWait("w")
 }
 
-
 #w::
 {
-    run("C:\Users\augus\Utilities\Shortcuts\WhatsApp.lnk")
+    run("C:\Users\augus\Utils\Shortcuts\WhatsApp.lnk")
     KeyWait("w")
 }
 
@@ -204,11 +180,12 @@ Landscape:
 #n::
 {
     Run("ms-settings:nightlight")
+    KeyWait("n")
 }
 
 #b::
 {
-    Run("C:\Program Files\Google\Chrome\Application\chrome.exe")
+    Run("C:\Program Files\Firefox Developer Edition\firefox.exe")
     Sleep(150)
     if WinActive("ahk_exe chrome.exe") {
         Sleep(100)
@@ -217,42 +194,33 @@ Landscape:
     KeyWait("b")
 }
 
-#+b::
-{
-    Run("`"C:\Program Files\Google\Chrome\Application\chrome.exe`" -incognito")
-    KeyWait("b")
-}
-
-^t::
-{
-    Send("^t")
-    if WinActive("ahk_exe chrome.exe") {
-        Sleep(75)
-        ControlClick("Chrome_RenderWidgetHostHWND1", "ahk_exe chrome.exe")
-    }
-    KeyWait("t")
-}
+; #+b::
+; {
+;     Run("`"C:\Program Files\Firefox Developer Edition\firefox.exe`" -private")
+;     KeyWait("b")
+; }
 
 #+g::
 {
-    Run("https://github.com/Asteriuz/FiapPC")
+    Run("https://github.com/Asteriuz/AutoPC")
     KeyWait("g")
 }
 
 #!Home::
 {
-    run("C:\Program Files\AutoHotkey\WindowSpy.ahk")
+    run("c:\Program Files\AutoHotkey\WindowSpy.ahk")
+    KeyWait("Home")
 }
 
 #Insert::
 {
-    run("C:\Program Files\Microsoft VS Code\Code.exe C:\Users\augus\Utilities\Scripts\PCAutomatizerAHK-main\scriptv2.ahk")
+    run("C:\Users\augus\AppData\Local\Programs\Microsoft VS Code\Code.exe C:\Users\augus\Utils\AutoPC\scriptv2.ahk")
     KeyWait("Insert")
 }
 
 #!Insert::
 {
-    run("C:\Program Files\Microsoft VS Code\Code.exe C:\Users\augus\Utilities\Scripts\PCAutomatizerAHK-main")
+    run("C:\Users\augus\AppData\Local\Programs\Microsoft VS Code\Code.exe C:\Users\augus\Utils\AutoPC")
     KeyWait("Insert")
 }
 
@@ -262,12 +230,6 @@ Landscape:
     KeyWait("d")
 }
 #HotIf
-
-#!v::
-{
-    ExplorerNewTab("C:\Users\augus\Videos")
-    KeyWait("d")
-}
 
 #HotIf WinActive("ahk_exe Code.exe")
 ^!.:: {
@@ -287,45 +249,32 @@ LControl & RAlt::
     Send("!{space}")
 }
 
-
 #c::
 {
     if (WinActive("ahk_exe explorer.exe")) {
         explorerpath := GetActiveExplorerTab()
         Sleep(150)
-        Run("`"C:\Program Files\Microsoft VS Code\Code.exe`"" . "`"" explorerpath . "`"")
+        Run("`"C:\Users\augus\AppData\Local\Programs\Microsoft VS Code\Code.exe`"" . "`"" explorerpath . "`"")
         KeyWait("c")
     }
     else {
-        run("C:\Program Files\Microsoft VS Code\Code.exe")
+        run("C:\Users\augus\AppData\Local\Programs\Microsoft VS Code\Code.exe")
     }
 }
-
 
 #!c::
 {
     run("calc")
-}
-
-#!p::
-{
-    Run("C:\Program Files\Microsoft VS Code\Code.exe C:\Users\augus\Code\Python\Testes\Testes.py")
-    KeyWait("p")
-}
-
-#!u::
-{
-    ExplorerNewTab("C:\Users\augus\Udemy")
-    KeyWait("u")
+    KeyWait("c")
 }
 
 #enter::
 {
     if (WinActive("ahk_exe explorer.exe")) {
         ; check if ahk class is ahk_class WorkerW
-        if (WinActive("ahk_class WorkerW")) {
+        if (WinActive("ahk_class Progman")) {
             Sleep(150)
-            run("wt", , , &varpid)
+            run("wt")
             KeyWait("enter")
         }
         else {
@@ -341,7 +290,6 @@ LControl & RAlt::
     }
 }
 
-
 #HotIf WinActive("ahk_exe explorer.exe")
 ^enter::
 {
@@ -350,48 +298,48 @@ LControl & RAlt::
 }
 #HotIf
 
-
 #-::
 {
     Send("{Volume_Down}")
 }
-
 
 #=::
 {
     Send("{Volume_Up}")
 }
 
-
 #!b::
 {
     run("ms-settings:bluetooth")
-
+    KeyWait("b")
 }
-
 
 #!d::
 {
     run("ms-settings:storagesense")
+    KeyWait("d")
 }
-
 
 #!l::
 {
     Sleep 1000
     SendMessage(0x112, 0xF170, 2, , "Program Manager")
+    KeyWait("l")
 }
 
 #^PrintScreen:: {
     ExplorerNewTab("C:\Users\augus\Pictures\Screenshots")
+    KeyWait("PrintScreen")
 }
 
 #!PrintScreen:: {
     ExplorerNewTab("C:\Users\augus\Pictures\Screenshots")
+    KeyWait("PrintScreen")
 }
 
 #^d:: {
     run("C:\Users\augus\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord.lnk")
+    KeyWait("d")
 }
 
 #h:: {
@@ -399,25 +347,19 @@ LControl & RAlt::
     KeyWait("h")
 }
 
-
 ;******************************************************************************
 ;                             Text Replacement
 ;******************************************************************************
 
 ::]s::&nbsp;
 
-
 ::]hm::augustobb@live.com
-
 
 ::]gm::gutocebola@gmail.com
 
-
 ::]nome::Augusto Barcelos Barros
 
-
 ::]fiap::98078
-
 
 ;******************************************************************************
 ;		                   	Computer information
@@ -430,11 +372,9 @@ LControl & RAlt::
 ; ;   SendInput(A_IPAddress)
 ; }
 
-
 ::]comp:: {
     SendInput(A_ComputerName)
 }
-
 
 ::]adb:: {
     SendInput("192.168.15.5:5555")
@@ -445,33 +385,23 @@ LControl & RAlt::
 ;******************************************************************************
 ::]-10::----------
 
-
 ::]-20::--------------------
-
 
 ::]-30::------------------------------
 
-
 ::]-40::----------------------------------------
-
 
 ::]-50::--------------------------------------------------
 
-
 ::]*10::**********
-
 
 ::]*20::********************
 
-
 ::]*30::******************************
-
 
 ::]*40::****************************************
 
-
 ::]*50::**************************************************
-
 
 ;******************************************************************************
 ;	                   		Date/Time Stamps
@@ -491,11 +421,9 @@ LControl & RAlt::
 ;   sendinput Time
 ; }
 
-
 ::vsf:: {
     sendinput("te amo")
 }
-
 
 ;******************************************************************************
 ;		                    	Programação
@@ -513,7 +441,6 @@ LControl & RAlt::
     A_Clipboard := FileRead(A_ScriptDir . "/lib/pytestsize.txt")
     Send("^v")
 }
-
 
 ;******************************************************************************
 ;		                        Simbolos
