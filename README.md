@@ -1,5 +1,5 @@
 <h1 align="center">
-🖥️<br>PCAutomatizerAHK
+🖥️<br>AutoPC
 </h1>
 
 <div align="center">

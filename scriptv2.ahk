@@ -13,12 +13,38 @@ global inputChange := false
 global portraitWallpaper := "C:\Program Files (x86)\Steam\steamapps\workshop\content\431960\2831647940\scene.pkg"
 global landscapeWallpaper := "C:\Program Files (x86)\Steam\steamapps\workshop\content\431960\2901461876\scene.pkg"
 
+
 #Include %A_ScriptDir%\lib\menu\menu_sound.ahk
 #Include %A_ScriptDir%\lib\menu\menu_monitors.ahk
 #Include %A_ScriptDir%\lib\menu\menu_adobe.ahk
 #Include %A_ScriptDir%\lib\menu\menu_v2new.ahk
 #Include %A_ScriptDir%\lib\menu\menu_explorer.ahk
 #Include %A_ScriptDir%\lib\explorerTabFunc.ahk
+
+::]help:: {
+    MsgBox("# - Win`n! - Alt`n^ - Ctrl`n+ - Shift")
+}
+
+::]win::{#}
+::]shift::{+}
+::]alt::{!}
+::]ctrl::{^}
+
+isFullscreen() {
+
+    activeWindow := WinGetID("A")
+
+    screenWidth := A_ScreenWidth
+    screenHeight := A_ScreenHeight
+
+    WinGetPos(&x, &y, &width, &height, "ahk_id " activeWindow)
+
+    if (x = 0 && y = 0 && width = screenWidth && height = screenHeight) {
+        return true
+    } else {
+        return false
+    }
+}
 
 GetActiveExplorerTab(hwnd := WinExist("A")) {
     activeTab := 0
@@ -44,79 +70,12 @@ GetActiveExplorerTab(hwnd := WinExist("A")) {
     }
 }
 
-::]help:: {
-    MsgBox("# - Win`n! - Alt`n^ - Ctrl`n+ - Shift")
+#HotIf not isFullscreen()
+^q:: {
+    send("!{F4}")
+    KeyWait("q")
 }
-
-ChangeScreenOrientation(Orientation := "Landscape") {
-    static DEVMODE, width, height
-    if !IsSet(DEVMODE) {
-        DEVMODE := Buffer(220, 0)
-        NumPut("short", 220, DEVMODE, 68)   ; dmSize
-        DllCall("EnumDisplaySettingsW", "ptr", 0, "int", -1, "ptr", DEVMODE)
-        n1 := NumGet(DEVMODE, 172, "uint")
-        n2 := NumGet(DEVMODE, 176, "uint")
-        if n1 > n2
-            width := n1, height := n2
-        else
-            width := n2, height := n1
-    }
-
-    switch Orientation, 0 {
-        case "Landscape", 0:
-Landscape:
-            NumPut("int", width, DEVMODE, 172)
-            NumPut("int", height, DEVMODE, 176)
-            NumPut("int", DMDO_DEFAULT := 0, DEVMODE, 84)   ; dmDisplayOrientation
-            DllCall("ChangeDisplaySettingsW", "ptr", DEVMODE, "uint", 0)
-        case "Portrait (flipped)", 270:
-            NumPut("int", width, DEVMODE, 176)
-            NumPut("int", height, DEVMODE, 172)
-            NumPut("int", DMDO_270 := 3, DEVMODE, 84)   ; dmDisplayOrientation
-            DllCall("ChangeDisplaySettingsW", "ptr", DEVMODE, "uint", 0)
-        case "Landscape (flipped)", 180:
-            NumPut("int", width, DEVMODE, 172)
-            NumPut("int", height, DEVMODE, 176)
-            NumPut("int", DMDO_180 := 2, DEVMODE, 84)   ; dmDisplayOrientation
-            DllCall("ChangeDisplaySettingsW", "ptr", DEVMODE, "uint", 0)
-        case "Portrait", 90:
-            NumPut("int", width, DEVMODE, 176)
-            NumPut("int", height, DEVMODE, 172)
-            NumPut("int", DMDO_90 := 1, DEVMODE, 84)   ; dmDisplayOrientation
-        default:
-            goto Landscape
-    }
-    DllCall("ChangeDisplaySettingsW", "ptr", DEVMODE, "uint", 0)
-}
-
-^!Up:: {
-    ; using var portraitWallpaper
-    Run(
-        '"C:\Program Files (x86)\Steam\steamapps\common\wallpaper_engine\wallpaper64.exe" -control openWallpaper -file "' .
-        landscapeWallpaper . '"')
-    ChangeScreenOrientation("Landscape")
-}
-
-^!Down:: {
-    Run(
-        '"C:\Program Files (x86)\Steam\steamapps\common\wallpaper_engine\wallpaper64.exe" -control openWallpaper -file "' .
-        landscapeWallpaper . '"')
-    ChangeScreenOrientation("Landscape (flipped)")
-}
-
-^!Left:: {
-    Run(
-        '"C:\Program Files (x86)\Steam\steamapps\common\wallpaper_engine\wallpaper64.exe" -control openWallpaper -file "' .
-        portraitWallpaper . '"')
-    ChangeScreenOrientation("Portrait (flipped)")
-}
-
-^!Right:: {
-    Run(
-        '"C:\Program Files (x86)\Steam\steamapps\common\wallpaper_engine\wallpaper64.exe" -control openWallpaper -file "' .
-        portraitWallpaper . '"')
-    ChangeScreenOrientation("Portrait")
-}
+#HotIf 
 
 #e:: {
     ExplorerNewTab("C:\Users\augus")
@@ -129,7 +88,7 @@ Landscape:
 }
 
 #HotIf ((WinActive("ahk_exe Code.exe") or WinActive("ahk_exe Notepad.exe") or WinActive("ahk_exe Notepad++.exe")) and
-InStr(WinGetTitle("A"), "scriptv2.ahk"))
+InStr(WinGetTitle("A"), "AutoPC"))
 ^s:: {
     Reload
     Send("^s")
@@ -214,13 +173,13 @@ InStr(WinGetTitle("A"), "scriptv2.ahk"))
 
 #Insert::
 {
-    run("C:\Users\augus\AppData\Local\Programs\Microsoft VS Code\Code.exe C:\Users\augus\Utils\AutoPC\scriptv2.ahk")
+    run("c:\Users\augus\Utils\Apps\VSCode\Code.exe C:\Users\augus\Utils\AutoPC\scriptv2.ahk")
     KeyWait("Insert")
 }
 
 #!Insert::
 {
-    run("C:\Users\augus\AppData\Local\Programs\Microsoft VS Code\Code.exe C:\Users\augus\Utils\AutoPC")
+    run("c:\Users\augus\Utils\Apps\VSCode\Code.exe C:\Users\augus\Utils\AutoPC")
     KeyWait("Insert")
 }
 
@@ -254,11 +213,11 @@ LControl & RAlt::
     if (WinActive("ahk_exe explorer.exe")) {
         explorerpath := GetActiveExplorerTab()
         Sleep(150)
-        Run("`"C:\Users\augus\AppData\Local\Programs\Microsoft VS Code\Code.exe`"" . "`"" explorerpath . "`"")
+        Run("`"c:\Users\augus\Utils\Apps\VSCode\Code.exe`"" . "`"" explorerpath . "`"")
         KeyWait("c")
     }
     else {
-        run("C:\Users\augus\AppData\Local\Programs\Microsoft VS Code\Code.exe")
+        run("c:\Users\augus\Utils\Apps\VSCode\Code.exe")
     }
 }
 
