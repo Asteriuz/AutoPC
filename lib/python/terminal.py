@@ -1,6 +1,5 @@
 import sys
-
-path = "C:\\Users\\augus\\AppData\\Roaming\\Code\\User\\settings.json"
+path = "C:\\Users\\augus\\Utils\\Apps\\VSCode\\data\\user-data\\User\\settings.json"
 
 
 with open(path, 'r') as file:

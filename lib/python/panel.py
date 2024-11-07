@@ -1,6 +1,5 @@
 import sys
-
-path = "C:\\Users\\augus\\AppData\\Roaming\\Code\\User\\keybindings.json"
+path = "C:\\Users\\augus\\Utils\\Apps\\VSCode\\data\\user-data\\User\\keybindings.json"
 
 
 def inputChange(sta):

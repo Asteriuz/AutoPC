@@ -1,5 +1,4 @@
 ﻿; #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
-; SetWorkingDir("C:\Users\augus\Utils\AutoPC")
 
 #Requires AutoHotkey v2.0-a
 SetNumlockState("AlwaysOff")
@@ -9,10 +8,6 @@ SetScrollLockState("AlwaysOff")
 
 ; Variables
 global inputChange := false
-
-global portraitWallpaper := "C:\Program Files (x86)\Steam\steamapps\workshop\content\431960\2831647940\scene.pkg"
-global landscapeWallpaper := "C:\Program Files (x86)\Steam\steamapps\workshop\content\431960\2901461876\scene.pkg"
-
 
 #Include %A_ScriptDir%\lib\menu\menu_sound.ahk
 #Include %A_ScriptDir%\lib\menu\menu_monitors.ahk
@@ -101,7 +96,7 @@ InStr(WinGetTitle("A"), "AutoPC"))
 }
 
 #l:: {
-    run("cmd.exe /c python " . A_ScriptDir . "\lib\night-light.py", , "hide")
+    run("cmd.exe /c python " . A_ScriptDir . "\lib\python\night-light.py", , "hide")
 }
 
 #^l:: {
@@ -173,19 +168,19 @@ InStr(WinGetTitle("A"), "AutoPC"))
 
 #Insert::
 {
-    run("c:\Users\augus\Utils\Apps\VSCode\Code.exe C:\Users\augus\Utils\AutoPC\scriptv2.ahk")
+    run("c:\Users\augus\Utils\Apps\VSCode\Code.exe " . A_ScriptDir . "\scriptv2.ahk")
     KeyWait("Insert")
 }
 
 #!Insert::
 {
-    run("c:\Users\augus\Utils\Apps\VSCode\Code.exe C:\Users\augus\Utils\AutoPC")
+    run("c:\Users\augus\Utils\Apps\VSCode\Code.exe " . A_ScriptDir . "")
     KeyWait("Insert")
 }
 
 #HotIf WinActive("ahk_exe Code.exe")
 #+d:: {
-    Run("python " . A_ScriptDir . "\lib\terminal.py")
+    Run("python " . A_ScriptDir . "\lib\python\terminal.py")
     KeyWait("d")
 }
 #HotIf
@@ -195,9 +190,9 @@ InStr(WinGetTitle("A"), "AutoPC"))
     Send("^!{.}")
     global inputChange
     if (inputChange = true)
-        run("python " . A_ScriptDir . "\lib\panel.py 1", , "hide")
+        run("python " . A_ScriptDir . "\lib\python\panel.py 1", , "hide")
     else
-        run("python " . A_ScriptDir . "\lib\panel.py 0 ", , "hide")
+        run("python " . A_ScriptDir . "\lib\python\panel.py 0 ", , "hide")
     inputChange := !inputChange
     KeyWait(".")
 }
@@ -230,7 +225,6 @@ LControl & RAlt::
 #enter::
 {
     if (WinActive("ahk_exe explorer.exe")) {
-        ; check if ahk class is ahk_class WorkerW
         if (WinActive("ahk_class Progman")) {
             Sleep(150)
             run("wt")
