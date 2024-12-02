@@ -56,7 +56,7 @@ CreateFile(path, name, mainMenu) {
 MenuExplorerHandler(FilePath, Item, ItemPos, MyMenu)
 {
     if (IsCtrlDown := GetKeyState("ctrl")) {
-        Run("C:\Program Files\Microsoft VS Code\Code.exe " . FilePath)
+        Run("c:\Users\augus\Utils\Apps\VSCode\Code.exe " . FilePath)
     }
     else if (IsCtrlDown := GetKeyState("shift")) {
         Sleep(150)

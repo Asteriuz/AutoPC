@@ -1,25 +1,21 @@
-import sys
 path = "C:\\Users\\augus\\Utils\\Apps\\VSCode\\data\\user-data\\User\\keybindings.json"
 
-
-def inputChange(sta):
+def togglePanelPosition():
     with open(path, "r") as file:
         filedata = file.read()
 
-    if sta == 0:
+    if '"command": "workbench.action.positionPanelBottom"' in filedata:
         filedata = filedata.replace(
             '"command": "workbench.action.positionPanelBottom"',
-            '"command": "workbench.action.positionPanelRight"',
+            '"command": "workbench.action.positionPanelRight"'
         )
-    if sta == 1:
+    else:
         filedata = filedata.replace(
             '"command": "workbench.action.positionPanelRight"',
-            '"command": "workbench.action.positionPanelBottom"',
+            '"command": "workbench.action.positionPanelBottom"'
         )
 
     with open(path, "w") as file:
         file.write(filedata)
 
-
-sta = int(sys.argv[1])
-inputChange(sta)
+togglePanelPosition()

@@ -1,41 +1,38 @@
 #Requires AutoHotkey v2.0-a
 #SingleInstance Force
 
+#Requires AutoHotkey v2.0-a
+#SingleInstance Force
 
-; monitorMenu := Menu()
-; monitorMenu.Add("PC", monitorHandler)
-; monitorMenu.Add("TV", monitorHandler)
-; monitorMenu.Add("Todos", monitorHandler)
+MonitorsMenu := Menu()
+MonitorsMenu.Add("Monitores", monitorHandler)
+MonitorsMenu.Add("TV", monitorHandler)
+MonitorsMenu.Add("All", monitorHandler)
 
+num := 80
 
-; monitorHandler(Item, ItemPos, MyMenu) {
-;   If Item = "PC" {
-;     run('MultiMonitorTool.exe /LoadConfig "C:\Users\augus\Utilities\Path\monitorscfg\PcMonitorsConfig.cfg"', , "hide")
-;   }
-;   If Item = "TV" {
-;     run('MultiMonitorTool.exe /LoadConfig "C:\Users\augus\Utilities\Path\monitorscfg\TvMonitorsConfig.cfg"', , "hide")
-;   }
-;   If Item = "Todos" {
-;     run('MultiMonitorTool.exe /LoadConfig "C:\Users\augus\Utilities\Path\monitorscfg\AllMonitorsConfig.cfg"', , "hide")
-;   }
-; }
+MonitorsMenu.SetIcon("Monitores", A_ScriptDir . "\lib\img\icons\display\monitores.ico", , num)
+MonitorsMenu.SetIcon("TV", A_ScriptDir . "\lib\img\icons\display\tv.ico", , num)
+MonitorsMenu.SetIcon("All", A_ScriptDir . "\lib\img\icons\display\all.ico", , num)
 
-; #!m:: {
-;   monitorMenu.Show()
-; }
+monitorHandler(Item, ItemPos, MyMenu) {
+    if Item = "Monitores" {
+        run("pwsh.exe -ExecutionPolicy Bypass -WindowStyle Hidden -noProfile " . A_ScriptDir .
+            "\lib\DisplayConfig\Monitors.ps1", , "hide")
+        MonitorsMenu.Default := "Monitores"
+    }
+    if Item = "TV" {
+        run("pwsh.exe -ExecutionPolicy Bypass -WindowStyle Hidden -noProfile " . A_ScriptDir .
+            "\lib\DisplayConfig\TV.ps1", , "hide")
+        MonitorsMenu.Default := "TV"
+    }
+    if Item = "All" {
+        run("pwsh.exe -ExecutionPolicy Bypass -WindowStyle Hidden -noProfile " . A_ScriptDir .
+            "\lib\DisplayConfig\All.ps1", , "hide")
+        MonitorsMenu.Default := "All"
+    }
+}
 
-; toggle monitor when pressing Win+M
-
-; add var
-
-monitorMenu := 0
 #!m:: {
-  global monitorMenu
-  If (monitorMenu = 0) {
-    Run('MultiMonitorTool.exe /LoadConfig "C:\Users\augus\Utilities\Path\monitorscfg\PcMonitorsConfig.cfg"', , "hide")
-    monitorMenu := 1
-  } Else {
-    Run('MultiMonitorTool.exe /LoadConfig "C:\Users\augus\Utilities\Path\monitorscfg\TvMonitorsConfig.cfg"', , "hide")
-    monitorMenu := 0
-  }
+    MonitorsMenu.Show()
 }
