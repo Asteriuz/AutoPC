@@ -17,11 +17,17 @@
     KeyWait("d")
 }
 
+#t:: {
+    run(ShortcutsPath . "qBittorrent")
+    KeyWait("t")
+}
+
 #w::
 {
     run(ShortcutsPath . "WhatsApp")
     KeyWait("w")
 }
+
 
 #^w::
 {

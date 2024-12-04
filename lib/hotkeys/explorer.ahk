@@ -26,6 +26,11 @@ BackSpace:: {
     KeyWait("d")
 }
 
+#^v:: {
+    ExplorerNewTab(UserPath . "\Videos")
+    KeyWait("v")
+}
+
 #^l:: {
     ExplorerNewTab("shell:RecycleBinFolder")
 }

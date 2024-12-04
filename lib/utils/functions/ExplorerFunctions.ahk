@@ -34,13 +34,13 @@ ExplorerNewTab(path) {
 
 GetActiveExplorerTab(hwnd := WinExist("A")) {
     activeTab := 0
-    try activeTab := ControlGetHwnd("ShellTabWindowClass1", hwnd) ; File Explorer (Windows 11)
+    try activeTab := ControlGetHwnd("ShellTabWindowClass1", hwnd)
     catch
-        try activeTab := ControlGetHwnd("TabWindowClass1", hwnd) ; IE
+        try activeTab := ControlGetHwnd("TabWindowClass1", hwnd)
     for w in ComObject("Shell.Application").Windows {
         if w.hwnd != hwnd
             continue
-        if activeTab { ; The window has tabs, so make sure this is the right one.
+        if activeTab {
             static IID_IShellBrowser := "{000214E2-0000-0000-C000-000000000046}"
             shellBrowser := ComObjQuery(w, IID_IShellBrowser, IID_IShellBrowser)
             ComCall(3, shellBrowser, "uint*", &thisTab := 0)
@@ -50,7 +50,7 @@ GetActiveExplorerTab(hwnd := WinExist("A")) {
         switch type(w.Document) {
             case "ShellFolderView":
                 return w.Document.Folder.Self.Path
-            default: ;case "HTMLDocument":
+            default:
                 return w.LocationURL
         }
     }

@@ -84,16 +84,17 @@ AutoPC
 
 ## ⌨️ Atalhos <a id="atalhos"></a>
 
-### 📂 `lib/hotkeys/apps.ahk` - Explorer
+### 📂 `lib/hotkeys/apps.ahk` - Abrir Aplicativos
 
-| **Atalho**       | **Descrição**                   |
-| ---------------- | ------------------------------- |
-| `Win + B`        | Abrir Firefox                   |
-| `Win + Ctrl + B` | Abrir Firefox (Modo Privado)    |
-| `Win + Ctrl + D` | Abrir Discord                   |
-| `Win + W`        | Abrir WhatsApp                  |
-| `Win + Ctrl + W` | Alternar/Abrir Wallpaper Engine |
-| `Win + Ctrl + C` | Abrir Calculadora               |
+| **Atalho**       | **Descrição**          |
+| ---------------- | ---------------------- |
+| `Win + B`        | Firefox                |
+| `Win + Ctrl + B` | Firefox (Modo Privado) |
+| `Win + Ctrl + D` | Discord                |
+| `Win + W`        | WhatsApp               |
+| `Win + T`        | qBittorrent            |
+| `Win + Ctrl + W` | Wallpaper Engine       |
+| `Win + Ctrl + C` | Calculadora            |
 
 > **Observação:** Criar uma pasta shortcuts no diretório do projeto para armazenar os atalhos personalizados.
 
@@ -112,17 +113,18 @@ AutoPC
 | -------------------------- | ------------------------------------- |
 | `Backspace`                | Navegar para a pasta anterior         |
 | `Win + H`                  | Alternar exibição de arquivos ocultos |
-| `Win + E`                  | Abrir nova aba no Explorer            |
-| `Win + D`                  | Abrir pasta Downloads                 |
+| `Win + E`                  | Abrir Explorador de Arquivos          |
+| `Win + D`                  | Abrir Downloads                       |
+| `Win + Ctrl + V`           | Abrir Vídeos                          |
 | `Win + Ctrl + L`           | Abrir Lixeira                         |
-| `Win + Ctrl + PrintScreen` | Abrir pasta Screenshots               |
+| `Win + Ctrl + PrintScreen` | Abrir Screenshots                     |
 | `Ctrl + Enter`             | Renomear item selecionado             |
 
 ### ⚙️ `lib/hotkeys/manager.ahk` - Gerenciamento do AutoPC
 
 | **Atalho**           | **Descrição**                        |
 | -------------------- | ------------------------------------ |
-| `Win + Alt + H`      | Exibir teclas modificadoras do AHK   |
+| `Win + Alt + H`      | Teclas modificadoras do AHK          |
 | `Scroll Lock`        | Alternar suspensão dos atalhos       |
 | `Win + Insert`       | Abrir `AutoPC.ahk` no VSCode         |
 | `Win + Alt + Insert` | Abrir diretório do projeto no VSCode |
@@ -132,54 +134,60 @@ AutoPC
 
 ### 🖥️ `lib/hotkeys/windows.ahk` - Windows
 
-| **Atalho**         | **Descrição**                        |
-| ------------------ | ------------------------------------ |
-| `Win + -`          | Diminuir volume                      |
-| `Win + =`          | Aumentar volume                      |
-| `Ctrl + Q`         | Fechar janela ativa                  |
-| `Win + Shift + L`  | Desligar tela                        |
-| `Win + Enter`      | Executar ações no Explorer           |
-| `Win + Home`       | Abrir Gerenciador de Tarefas         |
-| `Win + Alt + Home` | Abrir WindowSpy                      |
-| `Win + L`          | Executar `night-light.py`            |
-| `Win + N`          | Abrir configurações de luz noturna   |
-| `Win + Alt + B`    | Abrir configurações de Bluetooth     |
-| `Win + Alt + D`    | Abrir configurações de armazenamento |
+| **Atalho**         | **Descrição**                  |
+| ------------------ | ------------------------------ |
+| `Win + -`          | Diminuir volume                |
+| `Win + =`          | Aumentar volume                |
+| `Ctrl + Q`         | Fechar janela ativa            |
+| `Win + Shift + L`  | Desligar tela                  |
+| `Win + Shift + Q`  | Travar cursor ao monitor       |
+| `Win + Enter`      | Abir o Terminal                |
+| `Win + Home`       | Abrir Gerenciador de Tarefas   |
+| `Win + Alt + Home` | Abrir WindowSpy                |
+| `Win + L`          | Alternar modo noturno          |
+| `Win + N`          | Configurações de luz noturna   |
+| `Win + Alt + B`    | Configurações de Bluetooth     |
+| `Win + Alt + D`    | Configurações de armazenamento |
 
-### 📑 Menus Contextuais
+#### Personalize os Atalhos!
 
-#### 🎨 Adobe (`lib/menu/adobe.ahk`)
+Os atalhos podem ser ajustados diretamente nos arquivos `.ahk` localizados em `lib/hotkeys/`. Adicione, remova ou modifique atalhos e funções de acordo com suas preferências.
 
-| **Atalho** | **Descrição**                    |
-| ---------- | -------------------------------- |
-| `Win + A`  | Exibir menu Adobe                |
-| **Opções** | Photoshop, Illustrator, Premiere |
+## 📑 Menus Contextuais <a id="menus"></a>
 
-#### 🖥️ Exibição (`lib/menu/display.ahk`)
+### 🎨 **Adobe** (`lib/menu/adobe.ahk`)
 
-| **Atalho**      | **Descrição**           |
-| --------------- | ----------------------- |
-| `Win + Alt + M` | Exibir menu de exibição |
-| **Opções**      | Monitores, TV, All      |
+| **Atalho** | **Descrição**     | **Opções**                       |
+| ---------- | ----------------- | -------------------------------- |
+| `Win + A`  | Exibir menu Adobe | Photoshop, Illustrator, Premiere |
 
-#### 📂 Explorer (`lib/menu/explorer.ahk`)
+### 🖥️ **Exibição** (`lib/menu/display.ahk`)
 
-| **Atalho** | **Descrição**                     |
-| ---------- | --------------------------------- |
-| `Win + M`  | Exibir menu principal do Explorer |
+| **Atalho**      | **Descrição**           | **Opções**       |
+| --------------- | ----------------------- | ---------------- |
+| `Win + Alt + M` | Exibir menu de exibição | Monitor, TV, All |
 
-#### 🚀 Projetos (`lib/menu/project.ahk`)
+### 📂 **Explorer** (`lib/menu/explorer.ahk`)
+
+| **Atalho** | **Descrição**                     | **Path**          |
+| ---------- | --------------------------------- | ----------------- |
+| `Win + M`  | Exibir menu principal do Explorer | `C:\Users\<user>` |
+
+### 🚀 **Projetos** (`lib/menu/project.ahk`)
 
 | **Atalho** | **Descrição**           |
 | ---------- | ----------------------- |
 | `Win + U`  | Exibir menu de projetos |
 
-#### 🔊 Som (`lib/menu/sound.ahk`)
+### 🔊 **Som** (`lib/menu/sound.ahk`)
 
-| **Atalho**      | **Descrição**      |
-| --------------- | ------------------ |
-| `Win + Alt + S` | Exibir menu de som |
-| **Opções**      | Monitor, Fone, TV  |
+| **Atalho**      | **Descrição**      | **Opções**        |
+| --------------- | ------------------ | ----------------- |
+| `Win + Alt + S` | Exibir menu de som | Monitor, Fone, TV |
+
+#### Personalize os Menus!
+
+Os menus podem ser ajustados diretamente nos arquivos `.ahk` localizados em `lib/menu/`. Adicione, remova ou modifique atalhos e funções de acordo com suas preferências.
 
 ## ✍️ Autor <a id="autores"></a>
 

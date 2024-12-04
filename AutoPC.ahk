@@ -15,17 +15,19 @@ UtilsPath := A_ScriptDir . "\lib\utils"
 ShortcutsPath := A_ScriptDir . "\shortcuts\"
 VsCode := ShortcutsPath . "VSCode.lnk"
 
+/* -------------------------------- Functions ------------------------------- */
+#Include %A_ScriptDir%\lib\utils\functions\MenuFunctions.ahk
+#Include %A_ScriptDir%\lib\utils\functions\ExplorerFunctions.ahk
+#Include %A_ScriptDir%\lib\utils\functions\IsFullscreen.ahk
+#Include %A_ScriptDir%\lib\utils\functions\RunAsUser.ahk
+#Include %A_ScriptDir%\lib\utils\functions\Sounds.ahk
+
 /* ---------------------------------- Menu ---------------------------------- */
 #Include %A_ScriptDir%\lib\menu\sound.ahk
 #Include %A_ScriptDir%\lib\menu\display.ahk
 #Include %A_ScriptDir%\lib\menu\adobe.ahk
 #Include %A_ScriptDir%\lib\menu\project.ahk
 #Include %A_ScriptDir%\lib\menu\explorer.ahk
-
-/* -------------------------------- Functions ------------------------------- */
-#Include %A_ScriptDir%\lib\utils\functions\ExplorerFunctions.ahk
-#Include %A_ScriptDir%\lib\utils\functions\IsFullscreen.ahk
-#Include %A_ScriptDir%\lib\utils\functions\RunAsUser.ahk
 
 /* --------------------------------- Hotkeys -------------------------------- */
 #Include %A_ScriptDir%\lib\hotkeys\manager.ahk
@@ -36,5 +38,5 @@ VsCode := ShortcutsPath . "VSCode.lnk"
 
 /* ---------------------------------- JOKER --------------------------------- */
 #j:: {
-    MsgBox(UserPath)
+   MsgBox(ProcessExist("DMT.exe"))
 }

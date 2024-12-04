@@ -21,17 +21,15 @@
 ScrollLock:: {
     if A_IsSuspended {
         Suspend(0)
-        ToolTip("Hotkeys Enabled")
+        TurnOnSound()
         SetScrollLockState("AlwaysOff")
-        Sleep(1000)
-        ToolTip("")
+        
     } else {
         Suspend(1)
-        ToolTip("Hotkeys Suspended")
+        TurnOffSound()
         SetScrollLockState("AlwaysOn")
-        Sleep(1000)
-        ToolTip("")
     }
+    KeyWait("ScrollLock")
 }
 #SuspendExempt
 

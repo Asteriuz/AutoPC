@@ -38,6 +38,19 @@
     KeyWait("l")
 }
 
+#+q::
+{
+    if (ProcessExist("DMT.exe")) {
+        Send("#+q")
+    }
+    else {
+        Run(ShortcutsPath . "DMT.lnk")
+        Sleep(500)
+        Send("#+q")
+    }
+    KeyWait("q")
+}
+
 #enter::
 {
     if (WinActive("ahk_exe explorer.exe")) {
