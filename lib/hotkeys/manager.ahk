@@ -17,6 +17,24 @@
 ::]alt::{!}
 ::]ctrl::{^}
 
+#SuspendExempt
+ScrollLock:: {
+    if A_IsSuspended {
+        Suspend(0)
+        ToolTip("Hotkeys Enabled")
+        SetScrollLockState("AlwaysOff")
+        Sleep(1000)
+        ToolTip("")
+    } else {
+        Suspend(1)
+        ToolTip("Hotkeys Suspended")
+        SetScrollLockState("AlwaysOn")
+        Sleep(1000)
+        ToolTip("")
+    }
+}
+#SuspendExempt
+
 #Insert::
 {
     Run(VsCode . " " . A_ScriptDir . "\AutoPC.ahk")
@@ -38,24 +56,6 @@ InStr(WinGetTitle("A"), "AutoPC"))
     Reload
 }
 #HotIf
-
-#SuspendExempt
-ScrollLock:: {
-    if A_IsSuspended {
-        Suspend(0)
-        ToolTip("Hotkeys Enabled")
-        SetScrollLockState("AlwaysOff")
-        Sleep(1000)
-        ToolTip("")
-    } else {
-        Suspend(1)
-        ToolTip("Hotkeys Suspended")
-        SetScrollLockState("AlwaysOn")
-        Sleep(1000)
-        ToolTip("")
-    }
-}
-#SuspendExempt
 
 #+r:: {
     ToolTip("Reiniciando...")
