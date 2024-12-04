@@ -56,7 +56,7 @@ CreateFile(path, name, mainMenu) {
 MenuExplorerHandler(FilePath, Item, ItemPos, MyMenu)
 {
     if (IsCtrlDown := GetKeyState("ctrl")) {
-        Run("c:\Users\augus\Utils\Apps\VSCode\Code.exe " . FilePath)
+        Run(VsCode . " " . FilePath)
     }
     else if (IsCtrlDown := GetKeyState("shift")) {
         Sleep(150)
@@ -86,7 +86,7 @@ MenuExplorerHandler(FilePath, Item, ItemPos, MyMenu)
     }
 }
 
-principalExplorer := CreateFullMenu("principalExplorer", "C:\Users\augus")
+principalExplorer := CreateFullMenu("principalExplorer", UserPath)
 
 
 #m::
