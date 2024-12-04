@@ -10,10 +10,6 @@
 
 </div>
 
-<p align="center">
-<img src="lib/img/icons/ahk.ico" alt="Pc Image" width=300>
-</p>
-
 > Repositório que uso para usar meu PC de uma forma muito mais rápida
 
 <details open>
@@ -26,7 +22,7 @@
 <h2 name="autores">✍️ Autores</h2>
 
 | [<img src="https://avatars.githubusercontent.com/u/89879115?v=4" width=115><br><sub>Asteriuz</sub>](https://github.com/Asteriuz) |
-| :---: |
+| :------------------------------------------------------------------------------------------------------------------------------: |
 
 ---
 

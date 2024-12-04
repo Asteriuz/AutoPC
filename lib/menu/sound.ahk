@@ -25,17 +25,17 @@ soundHandler(Item, ItemPos, MyMenu) {
     global CurrentDevice
     if Item = "Monitor" {
         run("powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -noProfile " . UtilsPath .
-            "menu\sound\Monitor.ps1", , "hide")
+            "\menu\sound\Monitor.ps1", , "hide")
         CurrentDevice := "Monitor"
     }
     else if Item = "Fone" {
         run("powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -noProfile " . UtilsPath .
-            "menu\sound\Headset.ps1", , "hide")
+            "\menu\sound\Headset.ps1", , "hide")
         CurrentDevice := "Fone"
     }
     else if Item = "TV" {
         run("powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -noProfile " . UtilsPath .
-            "menu\sound\TV.ps1", , "hide")
+            "\menu\sound\TV.ps1", , "hide")
         CurrentDevice := "TV"
     }
 }
