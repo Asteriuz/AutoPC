@@ -19,8 +19,10 @@ VsCode := ShortcutsPath . "VSCode.lnk"
 #Include %A_ScriptDir%\lib\utils\functions\MenuFunctions.ahk
 #Include %A_ScriptDir%\lib\utils\functions\ExplorerFunctions.ahk
 #Include %A_ScriptDir%\lib\utils\functions\IsFullscreen.ahk
-#Include %A_ScriptDir%\lib\utils\functions\RunAsUser.ahk
+#Include %A_ScriptDir%\lib\utils\functions\Run.ahk
 #Include %A_ScriptDir%\lib\utils\functions\Sounds.ahk
+#Include %A_ScriptDir%\lib\utils\functions\ToggleCursor.ahk
+#Include %A_ScriptDir%\lib\utils\functions\HandleExit.ahk
 
 /* ---------------------------------- Menu ---------------------------------- */
 #Include %A_ScriptDir%\lib\menu\sound.ahk

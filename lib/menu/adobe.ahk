@@ -12,11 +12,11 @@ adobeMenu.SetIcon("Premiere", IconPath . "\adobe\premiere.ico", , num)
 
 AdobeHandler(Item, ItemPos, MyMenu) {
     if (Item = "Photoshop") {
-        Run(ShortcutsPath . "adobe\Photoshop.lnk")
+        RunAsUser(ShortcutsPath . "adobe\Photoshop.lnk")
     } else if (Item = "Illustrator") {
-        Run(ShortcutsPath . "adobe\Illustrator.lnk")
+        RunAsUser(ShortcutsPath . "adobe\Illustrator.lnk")
     } else if (Item = "Premiere") {
-        Run(ShortcutsPath . "adobe\Premiere.lnk")
+        RunAsUser(ShortcutsPath . "adobe\Premiere.lnk")
     }
 }
 

@@ -35,6 +35,6 @@ monitorHandler(Item, ItemPos, MyMenu) {
     }
 }
 
-#!m:: {
+#m:: {
     DisplayMenu.Show()
 }

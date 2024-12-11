@@ -52,14 +52,15 @@ CreateFile(path, name, mainMenu) {
 }
 
 MenuExplorerHandler(FilePath, Item, ItemPos, MyMenu) {
-    if (IsCtrlDown := GetKeyState("ctrl")) {
-        Run(VsCode . " " . FilePath)
+    if (IsKeyDown := GetKeyState("ctrl")) {
+        ; Run(VsCode . " " . FilePath)
+        RunAsUser(VsCode, FilePath)
     }
-    else if (IsCtrlDown := GetKeyState("shift")) {
+    else if (IsKeyDown := GetKeyState("shift")) {
         Sleep(150)
         Run("wt -d " . FilePath)
     }
-    else if (IsCtrlDown := GetKeyState("del")) {
+    else if (IsKeyDown := GetKeyState("del")) {
         Sleep(150)
         if (InStr(FileExist(FilePath), "D")) {
             MsgBox("Are you sure you want to delete this folder?")
@@ -74,7 +75,7 @@ MenuExplorerHandler(FilePath, Item, ItemPos, MyMenu) {
             MsgBox("File deleted")
         }
     }
-    else if (IsCtrlDown := GetKeyState("c")) {
+    else if (IsKeyDown := GetKeyState("c")) {
         A_Clipboard := FilePath
     }
     else {

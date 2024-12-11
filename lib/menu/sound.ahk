@@ -40,7 +40,7 @@ soundHandler(Item, ItemPos, MyMenu) {
     }
 }
 
-#!s:: {
+#s:: {
     global CurrentDevice
     if (CurrentDevice = "Monitor") {
         SoundMenu.Default := "Monitor"

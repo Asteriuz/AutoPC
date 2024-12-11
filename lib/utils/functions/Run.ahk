@@ -1,3 +1,11 @@
+RunTerminal(params := "") {
+   if A_IsAdmin {
+       Run("wt " . params)
+   } else {
+       RunAsUser("wt", params, "", "runas")
+   }
+}
+
 RunAsUser(filePath, arguments := "", directory := "", verb := "", show := 1)
 {
    static VT_UI4 := 0x13, SWC_DESKTOP := 0x8

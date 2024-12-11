@@ -1,16 +1,31 @@
 #Requires AutoHotkey v2.0
 
-; LButton::
-; {
-;     if (A_ThisHotkey = A_PriorHotkey && A_TimeSincePriorHotkey < 50) {
-;         return
-;     }
-;     else {
-;         Click "down"
-;         KeyWait "LButton"
-;         Click "up"
-;     }
-; }
+OnExit(HandleExit)
+
+#^+r:: {
+    Process := ComObject("WScript.Shell").Exec("taskkill /F /IM explorer.exe")
+    while Process.Status = 0
+        Sleep(100)
+    Run("explorer.exe")
+}
+
+#HotIf A_IsAdmin
+LButton::
+{
+    if (A_ThisHotkey = A_PriorHotkey && A_TimeSincePriorHotkey < 150) {
+        return
+    }
+    else {
+        Click "down"
+        KeyWait "LButton"
+        Click "up"
+    }
+}
+#HotIf
+
+#!c:: {
+    SystemCursor("Toggle")
+}
 
 #-::
 {
@@ -20,6 +35,11 @@
 #=::
 {
     Send("{Volume_Up}")
+}
+
+#backspace::
+{
+    Send("{Volume_Mute}")
 }
 
 #HotIf not IsFullscreen()
@@ -53,23 +73,33 @@
 
 #enter::
 {
+    Sleep(100)
     if (WinActive("ahk_exe explorer.exe")) {
-        if (WinActive("ahk_class Progman")) {
-            Sleep(150)
-            run("wt")
-            KeyWait("enter")
-        }
-        else {
-            explorerpath := GetActiveExplorerTab()
-            Sleep(150)
-            run("wt -d`"" . explorerpath . "`"", , , &varpid)
-            KeyWait("enter")
-        }
+        explorerPath := WinActive("ahk_class Progman") ? "" : GetActiveExplorerTab()
+        RunAsUser("wt", explorerPath ? "-d`"" . explorerPath . "`"" : "")
     } else {
-        Sleep(150)
-        run("wt", , , &varpid)
-        KeyWait("enter")
+        RunAsUser("wt")
     }
+
+    KeyWait("enter")
+}
+
+#!enter::
+{
+    Sleep(100)
+    isExplorer := WinActive("ahk_exe explorer.exe")
+    isDesktop := isExplorer && WinActive("ahk_class Progman")
+
+    if (isDesktop) {
+        RunTerminal()
+    } else if (isExplorer) {
+        explorerPath := GetActiveExplorerTab()
+        RunTerminal("-d`"" . explorerPath . "`"")
+    } else {
+        RunTerminal()
+    }
+
+    KeyWait("enter")
 }
 
 #Home:: {
@@ -87,7 +117,7 @@
     run("cmd.exe /c python " . A_ScriptDir . "\lib\utils\python\night-light.py", , "hide")
 }
 
-#n::
+#!l::
 {
     Run("ms-settings:nightlight")
     KeyWait("n")

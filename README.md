@@ -86,68 +86,70 @@ AutoPC
 
 ### 📂 `lib/hotkeys/apps.ahk` - Abrir Aplicativos
 
-| **Atalho**       | **Descrição**          |
-| ---------------- | ---------------------- |
-| `Win + B`        | Firefox                |
-| `Win + Ctrl + B` | Firefox (Modo Privado) |
-| `Win + Ctrl + D` | Discord                |
-| `Win + W`        | WhatsApp               |
-| `Win + T`        | qBittorrent            |
-| `Win + Ctrl + W` | Wallpaper Engine       |
-| `Win + Ctrl + C` | Calculadora            |
+| **🎯 Atalho**    | **📝 Descrição**          |
+| ---------------- | ------------------------- |
+| `Win + B`        | 🦊 Firefox                |
+| `Win + Ctrl + B` | 🕶️ Firefox (Modo Privado) |
+| `Win + Ctrl + D` | 💬 Discord                |
+| `Win + W`        | 📱 WhatsApp               |
+| `Win + T`        | 🔄 qBittorrent            |
+| `Win + Ctrl + W` | 🎨 Wallpaper Engine       |
+| `Win + Ctrl + C` | 🧮 Calculadora            |
 
-> **Observação:** Criar uma pasta shortcuts no diretório do projeto para armazenar os atalhos personalizados.
+> **📂 Observação:** Criar uma pasta `shortcuts` no diretório do projeto para armazenar os atalhos personalizados.
 
 ### 💻 `lib/hotkeys/code.ahk` - VsCode
 
-| **Atalho**        | **Descrição**                                 |
-| ----------------- | --------------------------------------------- |
-| `Win + Shift + D` | Executar `terminal.py`                        |
-| `Ctrl + Alt + .`  | Alternar posição do painel no VSCode          |
-| `Ctrl + Alt + S`  | Alternar configuração de Auto-Save            |
-| `Win + C`         | Abrir VSCode ou o diretório ativo no Explorer |
+| **🎯 Atalho**     | **📝 Descrição**                                 |
+| ----------------- | ------------------------------------------------ |
+| `Win + Shift + D` | 🛠️ Executar `terminal.py`                        |
+| `Ctrl + Alt + .`  | ↔️ Alternar posição do painel no VSCode          |
+| `Ctrl + Alt + S`  | 💾 Alternar configuração de Auto-Save            |
+| `Win + C`         | 🖥️ Abrir VSCode ou o diretório ativo no Explorer |
 
 ### 📁 `lib/hotkeys/explorer.ahk` - Windows Explorer
 
-| **Atalho**                 | **Descrição**                         |
-| -------------------------- | ------------------------------------- |
-| `Backspace`                | Navegar para a pasta anterior         |
-| `Win + H`                  | Alternar exibição de arquivos ocultos |
-| `Win + E`                  | Abrir Explorador de Arquivos          |
-| `Win + D`                  | Abrir Downloads                       |
-| `Win + Ctrl + V`           | Abrir Vídeos                          |
-| `Win + Ctrl + L`           | Abrir Lixeira                         |
-| `Win + Ctrl + PrintScreen` | Abrir Screenshots                     |
-| `Ctrl + Enter`             | Renomear item selecionado             |
+| **🎯 Atalho**              | **📝 Descrição**                         |
+| -------------------------- | ---------------------------------------- |
+| `Backspace`                | ↩️ Navegar para a pasta anterior         |
+| `Win + H`                  | 👀 Alternar exibição de arquivos ocultos |
+| `Win + E`                  | 📂 Abrir Explorador de Arquivos          |
+| `Win + D`                  | 📥 Abrir Downloads                       |
+| `Win + Ctrl + V`           | 🎥 Abrir Vídeos                          |
+| `Win + Ctrl + L`           | 🗑️ Abrir Lixeira                         |
+| `Win + Ctrl + PrintScreen` | 📸 Abrir Screenshots                     |
+| `Ctrl + Enter`             | ✏️ Renomear item selecionado             |
 
 ### ⚙️ `lib/hotkeys/manager.ahk` - Gerenciamento do AutoPC
 
-| **Atalho**           | **Descrição**                        |
-| -------------------- | ------------------------------------ |
-| `Win + Alt + H`      | Teclas modificadoras do AHK          |
-| `Scroll Lock`        | Alternar suspensão dos atalhos       |
-| `Win + Insert`       | Abrir `AutoPC.ahk` no VSCode         |
-| `Win + Alt + Insert` | Abrir diretório do projeto no VSCode |
-| `Win + Shift + R`    | Reiniciar o script                   |
-| `Win + Ctrl + R`     | Reiniciar em modo administrador      |
-| `Win + Ctrl + G`     | Abrir repositório no GitHub          |
+| **🎯 Atalho**        | **📝 Descrição**                        |
+| -------------------- | --------------------------------------- |
+| `Win` + `Alt` + `H`  | 🔧 Teclas modificadoras do AHK          |
+| `Scroll Lock`        | ⏸️ Alternar suspensão dos atalhos       |
+| `Win + Insert`       | 🔓 Abrir `AutoPC.ahk` no VSCode         |
+| `Win + Alt + Insert` | 📂 Abrir diretório do projeto no VSCode |
+| `Win + Shift + R`    | 🔄 Reiniciar o script                   |
+| `Win + Ctrl + R`     | 🛡️ Reiniciar em modo administrador      |
+| `Win + Ctrl + G`     | 🌐 Abrir repositório no GitHub          |
 
 ### 🖥️ `lib/hotkeys/windows.ahk` - Windows
 
-| **Atalho**         | **Descrição**                  |
-| ------------------ | ------------------------------ |
-| `Win + -`          | Diminuir volume                |
-| `Win + =`          | Aumentar volume                |
-| `Ctrl + Q`         | Fechar janela ativa            |
-| `Win + Shift + L`  | Desligar tela                  |
-| `Win + Shift + Q`  | Travar cursor ao monitor       |
-| `Win + Enter`      | Abir o Terminal                |
-| `Win + Home`       | Abrir Gerenciador de Tarefas   |
-| `Win + Alt + Home` | Abrir WindowSpy                |
-| `Win + L`          | Alternar modo noturno          |
-| `Win + N`          | Configurações de luz noturna   |
-| `Win + Alt + B`    | Configurações de Bluetooth     |
-| `Win + Alt + D`    | Configurações de armazenamento |
+| **🎯 Atalho**       | **📝 Descrição**                  |
+| ------------------- | --------------------------------- |
+| `Win + -`           | 🔉 Diminuir volume                |
+| `Win + =`           | 🔊 Aumentar volume                |
+| `Win + BackSpace`   | 🔇 Mudo                           |
+| `Ctrl + Q`          | ❌ Fechar janela ativa            |
+| `Win + Shift + L`   | 📴 Desligar tela                  |
+| `Win + Shift + Q`   | 📌 Travar cursor ao monitor       |
+| `Win + Enter`       | 🖥️ Abrir o Terminal               |
+| `Win + Alt + Enter` | 🛡️ Abrir o Terminal como Admin    |
+| `Win + Home`        | 📋 Abrir Gerenciador de Tarefas   |
+| `Win + Alt + Home`  | 🔍 Abrir Window Spy               |
+| `Win + L`           | 🌙 Alternar modo noturno          |
+| `Win + Alt + L`     | 🔆 Configurações de luz noturna   |
+| `Win + Alt + B`     | 🔵 Configurações de Bluetooth     |
+| `Win + Alt + D`     | 💾 Configurações de armazenamento |
 
 #### Personalize os Atalhos!
 
@@ -163,15 +165,15 @@ Os atalhos podem ser ajustados diretamente nos arquivos `.ahk` localizados em `l
 
 ### 🖥️ **Exibição** (`lib/menu/display.ahk`)
 
-| **Atalho**      | **Descrição**           | **Opções**       |
-| --------------- | ----------------------- | ---------------- |
-| `Win + Alt + M` | Exibir menu de exibição | Monitor, TV, All |
+| **Atalho** | **Descrição**           | **Opções**       |
+| ---------- | ----------------------- | ---------------- |
+| `Win + M`  | Exibir menu de exibição | Monitor, TV, All |
 
 ### 📂 **Explorer** (`lib/menu/explorer.ahk`)
 
-| **Atalho** | **Descrição**                     | **Path**          |
-| ---------- | --------------------------------- | ----------------- |
-| `Win + M`  | Exibir menu principal do Explorer | `C:\Users\<user>` |
+| **Atalho**        | **Descrição**                     | **Path**          |
+| ----------------- | --------------------------------- | ----------------- |
+| `Win + Shift + E` | Exibir menu principal do Explorer | `C:\Users\<user>` |
 
 ### 🚀 **Projetos** (`lib/menu/project.ahk`)
 
@@ -181,9 +183,9 @@ Os atalhos podem ser ajustados diretamente nos arquivos `.ahk` localizados em `l
 
 ### 🔊 **Som** (`lib/menu/sound.ahk`)
 
-| **Atalho**      | **Descrição**      | **Opções**        |
-| --------------- | ------------------ | ----------------- |
-| `Win + Alt + S` | Exibir menu de som | Monitor, Fone, TV |
+| **Atalho** | **Descrição**      | **Opções**        |
+| ---------- | ------------------ | ----------------- |
+| `Win + S`  | Exibir menu de som | Monitor, Fone, TV |
 
 #### Personalize os Menus!
 

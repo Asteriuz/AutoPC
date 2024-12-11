@@ -2,29 +2,29 @@
 
 #b::
 {
-    Run(ShortcutsPath . "Firefox")
+    RunAsUser(ShortcutsPath . "Firefox")
     KeyWait("b")
 }
 
 #^b::
 {
-    Run(ShortcutsPath . "FirefoxPrivate")
+    RunAsUser(ShortcutsPath . "FirefoxPrivate")
     KeyWait("b")
 }
 
 #^d:: {
-    run(ShortcutsPath . "Discord")
+    RunAsUser(ShortcutsPath . "Discord")
     KeyWait("d")
 }
 
 #t:: {
-    run(ShortcutsPath . "qBittorrent")
+    RunAsUser(ShortcutsPath . "qBittorrent")
     KeyWait("t")
 }
 
 #w::
 {
-    run(ShortcutsPath . "WhatsApp")
+    RunAsUser(ShortcutsPath . "WhatsApp")
     KeyWait("w")
 }
 
@@ -38,12 +38,12 @@
         WinActivate(" ahk_exe ui32.exe")
     }
     else
-        Run(ShortcutsPath . "Wallpaper Engine")
+        RunAsUser(ShortcutsPath . "Wallpaper Engine")
     KeyWait("w")
 }
 
 #^c::
 {
-    run("calc")
+    RunAsUser("calc")
     KeyWait("c")
 }

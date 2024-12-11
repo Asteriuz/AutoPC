@@ -21,7 +21,7 @@ ExplorerNewTab(path) {
             WinWaitActive()
         }
     } else {
-        Run(path)
+        RunAsUser(path)
         return
     }
     Send("^t")

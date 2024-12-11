@@ -3,7 +3,7 @@
 
 principalExplorer := CreateFullMenu("principalExplorer", UserPath)
 
-#m::
+#+e::
 {
     principalExplorer.Show()
 }
