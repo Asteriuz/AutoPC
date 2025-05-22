@@ -22,7 +22,7 @@
     if (WinActive("ahk_exe explorer.exe")) {
         explorerpath := GetActiveExplorerTab()
         Sleep(150)
-        RunAsUser(VsCode . " " . explorerpath)
+        RunAsUser(VsCode, explorerpath)
         KeyWait("c")
     }
     else {

@@ -13,7 +13,7 @@ num := 80
 
 DisplayMenu.SetIcon("Monitores", IconPath . "\display\monitores.ico", , num)
 DisplayMenu.SetIcon("TV", IconPath . "\display\tv.ico", , num)
-DisplayMenu.SetIcon("All", IconPath . "\display\all.ico", , num)
+DisplayMenu.SetIcon("All", IconPath . "\display\all_white.ico", , num)
 
 DisplayMenu.Default := "Monitores"
 

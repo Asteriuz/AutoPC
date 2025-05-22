@@ -1,6 +1,6 @@
 #Requires AutoHotkey v2.0
 
-#!h:: {
+HelpMsg() {
     MsgBox(
         "Key`tModifier`n" .
         "------------------------`n" .
@@ -10,6 +10,16 @@
         "Shift`t+",
         "AHK Modifier Keys"
     )
+}
+
+#!h:: {
+    HelpMsg()
+    KeyWait("h")
+}
+
+::]help:: {
+    HelpMsg()
+    KeyWait("help")
 }
 
 ::]win::{#}
@@ -23,15 +33,21 @@ ScrollLock:: {
         Suspend(0)
         TurnOnSound()
         SetScrollLockState("AlwaysOff")
-        
+        ToolTip("Modo Ativo")
+        Sleep(1000)
+        ToolTip("")
+
     } else {
         Suspend(1)
         TurnOffSound()
         SetScrollLockState("AlwaysOn")
+        ToolTip("Modo Suspenso")
+        Sleep(1000)
+        ToolTip("")
     }
     KeyWait("ScrollLock")
 }
-#SuspendExempt
+#SuspendExempt False
 
 #Insert::
 {

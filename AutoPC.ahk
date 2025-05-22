@@ -5,6 +5,7 @@
 /* -------------------------------- Settings -------------------------------- */
 #Requires AutoHotkey v2.0-a
 #SingleInstance
+#NoTrayIcon
 SetNumlockState("AlwaysOff")
 SetScrollLockState("AlwaysOff")
 
@@ -23,10 +24,13 @@ VsCode := ShortcutsPath . "VSCode.lnk"
 #Include %A_ScriptDir%\lib\utils\functions\Sounds.ahk
 #Include %A_ScriptDir%\lib\utils\functions\ToggleCursor.ahk
 #Include %A_ScriptDir%\lib\utils\functions\HandleExit.ahk
+#Include %A_ScriptDir%\lib\utils\functions\AltTab.ahk
 
 /* ---------------------------------- Menu ---------------------------------- */
+#Include %A_ScriptDir%\lib\menu\style.ahk
 #Include %A_ScriptDir%\lib\menu\sound.ahk
 #Include %A_ScriptDir%\lib\menu\display.ahk
+#Include %A_ScriptDir%\lib\menu\fiap.ahk
 #Include %A_ScriptDir%\lib\menu\adobe.ahk
 #Include %A_ScriptDir%\lib\menu\project.ahk
 #Include %A_ScriptDir%\lib\menu\explorer.ahk
@@ -40,5 +44,5 @@ VsCode := ShortcutsPath . "VSCode.lnk"
 
 /* ---------------------------------- JOKER --------------------------------- */
 #j:: {
-   MsgBox(ProcessExist("DMT.exe"))
+    MsgBox(ProcessExist("DMT.exe"))
 }

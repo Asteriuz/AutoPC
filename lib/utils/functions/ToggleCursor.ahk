@@ -16,11 +16,18 @@ SystemCursor(cmd) {
 
     switch cmd {
         case "Show":
+            LockUpMouse()
             visible := true
         case "Hide":
+            LockUpMouse(true)
             visible := false
         case "Toggle":
+            if (visible)
+                LockUpMouse(true)
+            else
+                LockUpMouse()
             visible := !visible
+
         default:
             return
     }
@@ -31,3 +38,15 @@ SystemCursor(cmd) {
         DllCall("SetSystemCursor", "ptr", hCursor, "uint", id)
     }
 }
+
+LockUpMouse(lock := false) {
+    CoordMode("Mouse", "Screen"), MouseGetPos(&x, &y)
+    ClipCursor(lock, x++, y++, x, y)
+}
+
+ClipCursor(Confine := True, x1 := 0, y1 := 0, x2 := 1, y2 := 1) {
+    static Rect := Buffer(16)
+    Confine ? NumPut("UInt", x1, "UInt", y1, "UInt", x2, "UInt", y2, Rect) : ""
+    return DllCall("ClipCursor", "Ptr", Confine ? Rect : 0)
+}
+OnExit (*) => (ClipCursor(0), 0)

@@ -23,8 +23,23 @@ LButton::
 }
 #HotIf
 
+#HotIf WinActive("ahk_exe onscripter-ru.exe")
+XButton2:: {
+    SystemCursor("Toggle")
+}
+#HotIf
+
 #!c:: {
     SystemCursor("Toggle")
+}
+
+#F12:: {
+    activeWindow := WinActive("A")
+    RemoveFromAltTab(activeWindow)
+}
+
+#+F12:: {
+    ShowInAltTabFromFile()
 }
 
 #-::
@@ -49,13 +64,11 @@ LButton::
 }
 #HotIf
 
-#+l::
-{
+#+l:: {
     ToolTip("Desligando a tela...")
     Sleep(1000)
     SendMessage(0x112, 0xF170, 2, , "Program Manager")
     ToolTip("")
-    KeyWait("l")
 }
 
 #+q::
