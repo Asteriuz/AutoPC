@@ -5,7 +5,7 @@
 /* -------------------------------- Settings -------------------------------- */
 #Requires AutoHotkey v2.0-a
 #SingleInstance
-#NoTrayIcon
+; #NoTrayIcon
 SetNumlockState("AlwaysOff")
 SetScrollLockState("AlwaysOff")
 
@@ -16,7 +16,9 @@ UtilsPath := A_ScriptDir . "\lib\utils"
 ShortcutsPath := A_ScriptDir . "\shortcuts\"
 VsCode := ShortcutsPath . "VSCode.lnk"
 
+
 /* -------------------------------- Functions ------------------------------- */
+#Include %A_ScriptDir%\lib\utils\functions\Help.ahk
 #Include %A_ScriptDir%\lib\utils\functions\MenuFunctions.ahk
 #Include %A_ScriptDir%\lib\utils\functions\ExplorerFunctions.ahk
 #Include %A_ScriptDir%\lib\utils\functions\IsFullscreen.ahk
@@ -26,11 +28,15 @@ VsCode := ShortcutsPath . "VSCode.lnk"
 #Include %A_ScriptDir%\lib\utils\functions\HandleExit.ahk
 #Include %A_ScriptDir%\lib\utils\functions\AltTab.ahk
 
+/* ------------------------------ Text Replace ------------------------------ */
+#Include %A_ScriptDir%\lib\utils\text-replace.ahk
+
 /* ---------------------------------- Menu ---------------------------------- */
 #Include %A_ScriptDir%\lib\menu\style.ahk
 #Include %A_ScriptDir%\lib\menu\sound.ahk
 #Include %A_ScriptDir%\lib\menu\display.ahk
 #Include %A_ScriptDir%\lib\menu\fiap.ahk
+#Include %A_ScriptDir%\lib\menu\gs.ahk
 #Include %A_ScriptDir%\lib\menu\adobe.ahk
 #Include %A_ScriptDir%\lib\menu\project.ahk
 #Include %A_ScriptDir%\lib\menu\explorer.ahk
@@ -38,11 +44,17 @@ VsCode := ShortcutsPath . "VSCode.lnk"
 /* --------------------------------- Hotkeys -------------------------------- */
 #Include %A_ScriptDir%\lib\hotkeys\manager.ahk
 #Include %A_ScriptDir%\lib\hotkeys\windows.ahk
+#Include %A_ScriptDir%\lib\hotkeys\remaps.ahk
 #Include %A_ScriptDir%\lib\hotkeys\explorer.ahk
 #Include %A_ScriptDir%\lib\hotkeys\code.ahk
 #Include %A_ScriptDir%\lib\hotkeys\apps.ahk
 
 /* ---------------------------------- JOKER --------------------------------- */
-#j:: {
-    MsgBox(ProcessExist("DMT.exe"))
-}
+; XButton2::
+; {
+;     while GetKeyState("XButton2", "P")  ; While the button is pressed
+;     {
+;         Click "Right"
+;         Sleep 50 ; adjust this for speed (e.g., 50ms = 20 clicks per second)
+;     }
+; }

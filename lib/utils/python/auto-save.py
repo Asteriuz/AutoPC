@@ -1,7 +1,7 @@
 import os
 
 path = os.path.join(
-    os.path.expanduser("~"), "Utils\\Apps\\VSCode\\data\\user-data\\User\\settings.json"
+    os.path.expanduser("~"), "AppData", "Roaming", "Code", "User", "settings.json"
 )
 
 

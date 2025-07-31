@@ -57,12 +57,12 @@ XButton2:: {
     Send("{Volume_Mute}")
 }
 
-#HotIf not IsFullscreen()
-^q:: {
-    send("!{F4}")
-    KeyWait("q")
-}
-#HotIf
+; #HotIf not IsFullscreen()
+; ^q:: {
+;     send("!{F4}")
+;     KeyWait("q")
+; }
+; #HotIf
 
 #+l:: {
     ToolTip("Desligando a tela...")

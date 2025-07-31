@@ -1,32 +1,5 @@
 #Requires AutoHotkey v2.0
 
-HelpMsg() {
-    MsgBox(
-        "Key`tModifier`n" .
-        "------------------------`n" .
-        "Win`t#`n" .
-        "Alt`t!`n" .
-        "Ctrl`t^`n" .
-        "Shift`t+",
-        "AHK Modifier Keys"
-    )
-}
-
-#!h:: {
-    HelpMsg()
-    KeyWait("h")
-}
-
-::]help:: {
-    HelpMsg()
-    KeyWait("help")
-}
-
-::]win::{#}
-::]shift::{+}
-::]alt::{!}
-::]ctrl::{^}
-
 #SuspendExempt
 ScrollLock:: {
     if A_IsSuspended {
