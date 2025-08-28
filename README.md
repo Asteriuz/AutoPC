@@ -87,9 +87,9 @@ AutoPC
 ### 📂 `lib/hotkeys/apps.ahk` - Abrir Aplicativos
 
 | **🎯 Atalho**    | **📝 Descrição**          |
-| ---------------- | ------------------------- |
-| `Win + B`        | 🦊 Firefox                |
-| `Win + Ctrl + B` | 🕶️ Firefox (Modo Privado) |
+| ---------------- | -------------------------  |
+| `Win + B`        | 🌋 Vivaldi                |
+| `Win + Ctrl + B` | 🕶️ Vivaldi (Modo Privado) |
 | `Win + Ctrl + D` | 💬 Discord                |
 | `Win + W`        | 📱 WhatsApp               |
 | `Win + T`        | 🔄 qBittorrent            |
@@ -110,7 +110,7 @@ AutoPC
 ### 📁 `lib/hotkeys/explorer.ahk` - Windows Explorer
 
 | **🎯 Atalho**              | **📝 Descrição**                         |
-| -------------------------- | ---------------------------------------- |
+| -------------------------- | ----------------------------------------  |
 | `Backspace`                | ↩️ Navegar para a pasta anterior         |
 | `Win + H`                  | 👀 Alternar exibição de arquivos ocultos |
 | `Win + E`                  | 📂 Abrir Explorador de Arquivos          |
@@ -122,9 +122,9 @@ AutoPC
 
 ### ⚙️ `lib/hotkeys/manager.ahk` - Gerenciamento do AutoPC
 
-| **🎯 Atalho**        | **📝 Descrição**                        |
+| **🎯 Atalho**        | **📝 Descrição**                       |
 | -------------------- | --------------------------------------- |
-| `Win` + `Alt` + `H`  | 🔧 Teclas modificadoras do AHK          |
+| `Win` + `Shift` + `H`  | 🔧 Teclas modificadoras do AHK        |
 | `Scroll Lock`        | ⏸️ Alternar suspensão dos atalhos       |
 | `Win + Insert`       | 🔓 Abrir `AutoPC.ahk` no VSCode         |
 | `Win + Alt + Insert` | 📂 Abrir diretório do projeto no VSCode |
