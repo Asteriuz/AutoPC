@@ -1,17 +1,42 @@
 #Requires AutoHotkey v2.0
 
-IsFullscreen() {
+class isFullScreen
+{
+	
+	static monitors:=this.init()
+	static init()
+	{
+		a:=[]
+		loop MonitorGetCount()
+		{
+			MonitorGet(A_Index, &Left, &Top, &Right, &Bottom)
+			a.Push({l:Left,t:Top,r:Right,b:Bottom})
+		}
+		Return a
+	}
 
-    activeWindow := WinGetID("A")
-
-    screenWidth := A_ScreenWidth
-    screenHeight := A_ScreenHeight
-
-    WinGetPos(&x, &y, &width, &height, "ahk_id " activeWindow)
-
-    if (x = 0 && y = 0 && width = screenWidth && height = screenHeight) {
-        return true
-    } else {
-        return false
-    }
+	static Call()
+	{
+		uid:=WinExist("A")
+		if(!uid){
+			Return False
+		}
+		wid:="ahk_id " uid
+		c:=WinGetClass(wid)
+		If (uid = DllCall("GetDesktopWindow") Or (c = "Progman") Or (c = "WorkerW")){
+			Return False
+		}
+		WinGetClientPos(&cx,&cy,&cw,&ch,wid)
+		cl:=cx
+		ct:=cy
+		cr:=cx+cw
+		cb:=cy+ch
+		For , v in this.monitors
+		{
+			if(cl==v.l and ct==v.t and cr==v.r and cb==v.b){
+				Return True
+			}
+		}
+		Return False
+	}
 }

@@ -1,6 +1,6 @@
-﻿projects := CreateFullMenu("projects", userpath . "\Code\Projetos", 4)
+﻿projects := CreateFullMenu("projects", userpath . "\Projects", 4)
 
-#u::
+#p::
 {
     projects.Show()
 }

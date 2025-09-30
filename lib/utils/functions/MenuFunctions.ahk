@@ -54,7 +54,7 @@ CreateFile(path, name, mainMenu) {
 MenuExplorerHandler(FilePath, Item, ItemPos, MyMenu) {
     if (IsKeyDown := GetKeyState("ctrl")) {
         ; Run(VsCode . " " . FilePath)
-        RunAsUser(VsCode, FilePath)
+        RunAsUser(CodeEditor, FilePath)
     }
     else if (IsKeyDown := GetKeyState("shift")) {
         Sleep(150)

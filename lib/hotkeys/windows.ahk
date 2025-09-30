@@ -126,15 +126,15 @@ XButton2:: {
     KeyWait("Home")
 }
 
-#l:: {
+#!l:: {
     run("cmd.exe /c python " . A_ScriptDir . "\lib\utils\python\night-light.py", , "hide")
 }
 
-#!l::
-{
-    Run("ms-settings:nightlight")
-    KeyWait("n")
-}
+; #!l::
+; {
+;     Run("ms-settings:nightlight")
+;     KeyWait("n")
+; }
 
 #!b::
 {
@@ -146,4 +146,15 @@ XButton2:: {
 {
     run("ms-settings:storagesense")
     KeyWait("d")
+}
+
+#PgUp:: {
+    if WinGetMinMax("A") = 1
+        WinRestore("A")
+    else
+        WinMaximize("A")
+}
+
+#PgDn:: {
+    WinMinimize("A")
 }

@@ -24,13 +24,13 @@ ScrollLock:: {
 
 #Insert::
 {
-    RunAsUser(VsCode, A_ScriptDir . "\AutoPC.ahk")
+    RunAsUser(CodeEditor, A_ScriptDir . "\AutoPC.ahk")
     KeyWait("Insert")
 }
 
-#!Insert::
+#^Insert::
 {
-    RunAsUser(VsCode, A_ScriptDir)
+    RunAsUser(CodeEditor, A_ScriptDir)
     KeyWait("Insert")
 }
 

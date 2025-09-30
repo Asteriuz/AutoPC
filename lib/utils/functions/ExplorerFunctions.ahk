@@ -14,14 +14,18 @@ ToggleHiddenFiles() {
     Send("{F5}")
 }
 
-ExplorerNewTab(path) {
+ExplorerNewTab(path, home := False) {
     if hwnd := WinExist("ahk_exe explorer.exe ahk_class CabinetWClass") {
         if !WinActive("ahk_id" hwnd) {
             WinActivate()
             WinWaitActive()
         }
     } else {
-        RunAsUser(path)
+        if home {
+            Run('explorer.exe "' path '"')
+        } else {
+            RunAsUser(path)
+        }
         return
     }
     Send("^t")
@@ -63,4 +67,17 @@ isViewingFolder() {
         return !(className = "Edit" or className = "Microsoft.UI.Content.DesktopChildSiteBridge")
     }
     return false
+}
+
+GetSelectedFile() {
+    selectedItems := ""
+    for window in ComObject("Shell.Application").Windows {
+        if (InStr(window.FullName, "explorer.exe") && window.Document.SelectedItems.Count > 0) {
+            for item in window.Document.SelectedItems {
+                selectedItems .= (selectedItems = "" ? "" : "`n") . item.Path
+            }
+            return selectedItems
+        }
+    }
+    return ""
 }

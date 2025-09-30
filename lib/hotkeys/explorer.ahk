@@ -17,7 +17,7 @@ BackSpace:: {
 }
 
 #e:: {
-    ExplorerNewTab(UserPath)
+    ExplorerNewTab(UserPath, True)
     KeyWait("e")
 }
 
@@ -45,5 +45,14 @@ BackSpace:: {
 {
     Send("{F2}")
     KeyWait("enter")
+}
+
+#^e:: {
+    selectedFile := GetSelectedFile()
+    if selectedFile {
+        SplitPath(selectedFile, , &fileDir)
+        Run('nanazipc e -spf -sps -o"' fileDir '" "' selectedFile '"', , "hide")
+    }
+    KeyWait("e")
 }
 #HotIf

@@ -1,15 +1,36 @@
 #Requires AutoHotkey v2.0
 
+^q:: {
+    if !IsFullscreen() {
+        hwnd := WinActive("A")
+        if hwnd {
+            WinClose(hwnd)
+        }
+    }
+    KeyWait("q")
+}
+
+^+q:: {
+    Send("!{F4}")
+    KeyWait("q")
+}
+
 #b::
 {
-    RunAsUser(ShortcutsPath . "Firefox")
+    RunAsUser(ShortcutsPath . "Vivaldi", "--profile-directory=Default")
     KeyWait("b")
 }
 
-#^b::
+#+b::
 {
-    RunAsUser(ShortcutsPath . "FirefoxPrivate")
+    RunAsUser(ShortcutsPath . "VivaldiPrivate", "--incognito")
     KeyWait("b")
+}
+
+#^c::
+{
+    RunAsUser("calc")
+    KeyWait("c")
 }
 
 #^d:: {
@@ -22,12 +43,15 @@
     KeyWait("t")
 }
 
-#w::
-{
-    RunAsUser(ShortcutsPath . "WhatsApp")
-    KeyWait("w")
+#u:: {
+    RunAsUser(ShortcutsPath . "UniGetUi")
+    KeyWait("u")
 }
 
+#w:: {
+    RunAsUser("whatsapp:")
+    KeyWait("w")
+}
 
 #^w::
 {
@@ -40,10 +64,4 @@
     else
         RunAsUser(ShortcutsPath . "Wallpaper Engine")
     KeyWait("w")
-}
-
-#^c::
-{
-    RunAsUser("calc")
-    KeyWait("c")
 }

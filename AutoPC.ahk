@@ -14,8 +14,7 @@ UserPath := EnvGet("UserProfile")
 IconPath := A_ScriptDir . "\lib\assets\icons"
 UtilsPath := A_ScriptDir . "\lib\utils"
 ShortcutsPath := A_ScriptDir . "\shortcuts\"
-VsCode := ShortcutsPath . "VSCode.lnk"
-
+CodeEditor := ShortcutsPath . "Visual Studio Code"
 
 /* -------------------------------- Functions ------------------------------- */
 #Include %A_ScriptDir%\lib\utils\functions\Help.ahk
@@ -50,11 +49,11 @@ VsCode := ShortcutsPath . "VSCode.lnk"
 #Include %A_ScriptDir%\lib\hotkeys\apps.ahk
 
 /* ---------------------------------- JOKER --------------------------------- */
-; XButton2::
-; {
-;     while GetKeyState("XButton2", "P")  ; While the button is pressed
-;     {
-;         Click "Right"
-;         Sleep 50 ; adjust this for speed (e.g., 50ms = 20 clicks per second)
-;     }
-; }
+#j:: {
+    if !A_IsAdmin {
+        MsgBox "AutoHotkey is not running as administrator."
+        return
+    }
+    else MsgBox("AutoHotkey is running as administrator.")
+
+}
