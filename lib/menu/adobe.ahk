@@ -1,24 +1,24 @@
 adobeMenu := Menu()
 
-adobeMenu.Add("Photoshop", AdobeHandler)
-adobeMenu.Add("Illustrator", AdobeHandler)
-adobeMenu.Add("Premiere", AdobeHandler)
+adobeApps := Map(
+    "Photoshop", { icon: "\adobe\photoshop.ico", shortcut: "adobe\Photoshop.lnk" },
+    "Illustrator", { icon: "\adobe\illustrator.ico", shortcut: "adobe\Illustrator.lnk" },
+    "Premiere", { icon: "\adobe\premiere.ico", shortcut: "adobe\Premiere.lnk" }
+)
 
-num := 80
-
-adobeMenu.SetIcon("Photoshop", IconPath . "\adobe\photoshop.ico", , num)
-adobeMenu.SetIcon("Illustrator", IconPath . "\adobe\illustrator.ico", , num)
-adobeMenu.SetIcon("Premiere", IconPath . "\adobe\premiere.ico", , num)
 
 AdobeHandler(Item, ItemPos, MyMenu) {
-    if (Item = "Photoshop") {
-        RunAsUser(ShortcutsPath . "adobe\Photoshop.lnk")
-    } else if (Item = "Illustrator") {
-        RunAsUser(ShortcutsPath . "adobe\Illustrator.lnk")
-    } else if (Item = "Premiere") {
-        RunAsUser(ShortcutsPath . "adobe\Premiere.lnk")
+    global adobeApps, ShortcutsPath
+    if adobeApps.Has(Item) {
+        RunAsUser(ShortcutsPath . adobeApps[Item].shortcut)
     }
 }
+
+for name, data in adobeApps {
+    adobeMenu.Add(name, AdobeHandler)
+    adobeMenu.SetIcon(name, IconPath . data.icon, , 80)
+}
+
 
 #a:: {
     adobeMenu.Show()

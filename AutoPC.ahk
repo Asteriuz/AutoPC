@@ -34,11 +34,12 @@ CodeEditor := ShortcutsPath . "Visual Studio Code"
 #Include %A_ScriptDir%\lib\menu\style.ahk
 #Include %A_ScriptDir%\lib\menu\sound.ahk
 #Include %A_ScriptDir%\lib\menu\display.ahk
+#Include %A_ScriptDir%\lib\menu\web.ahk
 #Include %A_ScriptDir%\lib\menu\fiap.ahk
 #Include %A_ScriptDir%\lib\menu\gs.ahk
-#Include %A_ScriptDir%\lib\menu\adobe.ahk
 #Include %A_ScriptDir%\lib\menu\project.ahk
 #Include %A_ScriptDir%\lib\menu\explorer.ahk
+; #Include %A_ScriptDir%\lib\menu\adobe.ahk
 
 /* --------------------------------- Hotkeys -------------------------------- */
 #Include %A_ScriptDir%\lib\hotkeys\manager.ahk

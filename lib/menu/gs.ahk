@@ -3,10 +3,6 @@
 
 gsMenu := CreateFullMenu("gsMenu", userpath . "\GS", 4, true)
 
-!g::
-{
-    gsMenu.Show()
-}
 
 #+g::
 {

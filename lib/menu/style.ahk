@@ -12,4 +12,4 @@ SetMenuTheme(appMode:=0)    { ;  ahk2.0
         :-1
 }
 
-SetMenuTheme("ForceDark")
+SetMenuTheme(1)
