@@ -9,6 +9,27 @@ BackSpace:: {
         Send("{Backspace}")
     }
 }
+
+!n:: {
+    Send("{Alt}{Enter}")
+    Sleep(100)
+    Send("{Up 3}{Enter}")
+    KeyWait("n")
+}
+
+^v:: {
+    large := 96
+    for oWin in ComObject("Shell.Application").Windows
+        if WinActive() = oWin.Hwnd {
+            if oWin.Document.CurrentViewMode == 1 {
+                oWin.Document.CurrentViewMode := 4
+            } else {
+                oWin.Document.CurrentViewMode := 1
+            }
+            oWin.Document.IconSize := large
+        }
+    return
+}
 #HotIf
 
 #h:: {
